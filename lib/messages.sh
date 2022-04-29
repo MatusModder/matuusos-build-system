@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-info() {
+message() {
     echo -e "\033[32m[INFO]\033[0m $1"
 }
 warnings() {
@@ -13,6 +13,6 @@ if [ -z "$1" ]; then
     error "Please enter a path to config file"
     exit 1
 fi
-export info "$1"
+export message "$1"
 export warnings "$1"
 export error "$1"
