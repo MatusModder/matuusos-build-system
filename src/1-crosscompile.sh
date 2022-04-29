@@ -3,7 +3,14 @@
 wget https://linuxfromscratch.org/lfs/view/stable/wget-list
 LFS=./test
 bash ./2-create-file-structure.sh
+if [ -f test ] then
+rm -rf test
+fi
 mkdir $LFS/sources/
+# if the wget-list exists, then remove it
+if [ -f wget-list ]; then
+    rm wget-list*
+fi
 info "downloading sources"
 wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
 cd $LFS/sources || exit
