@@ -1,0 +1,45 @@
+config:
+  language:
+    locale: sk_SK.UTF-8 # please change this to your desired locale
+    kbd: sk # please change this to your desired keyboard language
+    timezone: Europe/Bratislava # please change this to your desired timezone
+  disk:
+    table: mbr
+    scheme:
+      boot: true
+        size: 500M
+        fs: ext4
+      swap: true
+        size: 1G
+      root: true
+        size: rest
+        fs: ext4
+      home: false # required only if you plan to use read-only filesystem, otherwise, say false.
+        size: rest
+  
+  base_packages:
+    shell: bash
+    kernel: linux
+    init: openrc
+    bootloader: grub
+  bootloader:
+    install-device: /dev/sda
+    boot-params: none 
+  xorg:
+    install: true
+    wm:
+      type: openbox
+      config: /etc/X11/openbox/rc.xml
+  drivers:
+    type: nvidia
+  users:
+    name: matus
+      groups: audio,video,wheel
+  flatpak:
+    enable: true
+    packages: 
+      - firefox
+      - obs-studio
+      - vlc
+      - gimp
+      - kdenlive

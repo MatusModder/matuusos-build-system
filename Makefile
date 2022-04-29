@@ -1,0 +1,1 @@
+squashfs: bash ./run.sh; mksquashfs src/test -o chroot.squashfs
